@@ -15,26 +15,24 @@ import java.util.ArrayList;
 
 public class Counter 
 {
-	public int gridSize = 4;
+	private int gridWidth, gridHeight;
 	
 	public ArrayList<Point> invalidPoints = new ArrayList<Point>();
 	public ArrayList<Point> validPoints = new ArrayList<Point>();
 	
 	public ArrayList<Triangle> triangles = new ArrayList<Triangle>();
 	
-	public Counter()
-	{
-		//Add any invalid coordinates on the grid.
-		//In this case, all corners are unallowed.
-		invalidPoints.add(new Point(0,0));
-		invalidPoints.add(new Point(0,3));
-		invalidPoints.add(new Point(3,0));
-		invalidPoints.add(new Point(3,3));
+	public Counter(int gridWidth, int gridHeight, ArrayList<Point> invalidPoints)
+	{	
+		this.gridWidth = gridWidth;
+		this.gridHeight = gridHeight;
+		
+		this.invalidPoints = invalidPoints;
 		
 		//Generate valid points (any coordinate not in invalidPoints.)
-		for(int x = 0; x < gridSize; x++)
+		for(int x = 0; x < gridWidth; x++)
 		{
-			for(int y = 0; y < gridSize; y++)
+			for(int y = 0; y < gridHeight; y++)
 			{
 				Point p = new Point(x,y);
 				
@@ -93,6 +91,16 @@ public class Counter
 				return true;
 		}
 		return false;
+	}
+	
+	public int getGridWidth()
+	{
+		return gridWidth;
+	}
+	
+	public int getGridHeight()
+	{
+		return gridHeight;
 	}
 	
 }

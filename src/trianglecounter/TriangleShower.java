@@ -33,9 +33,8 @@ public class TriangleShower extends JPanel
 	public TriangleShower(Counter c)
 	{
 		counter = c;
-		
-		int windowSize = (counter.gridSize-1)*scale + 10;
-		this.setPreferredSize(new Dimension(windowSize, windowSize));
+
+		this.setPreferredSize(new Dimension((counter.getGridWidth()-1)*scale + 10, (counter.getGridHeight()-1)*scale + 10));
 	}
 	
 	public void paint(Graphics g)
